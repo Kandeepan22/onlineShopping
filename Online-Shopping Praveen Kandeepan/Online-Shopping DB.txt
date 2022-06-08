@@ -1,0 +1,45 @@
+create database online_shopping;
+
+use online_shopping;
+
+drop table if exists orders;
+create table orders (
+o_id integer not null auto_increment,
+p_id integer not null,
+u_id integer not null,
+o_quantity integer not null,
+o_date varchar(450) not null,
+primary key (o_id)
+);
+
+<!--INSERT INTO `orders` VALUES (25,3,1,3,'2021-12-11'),(26,2,1,1,'2021-12-11');-->
+
+drop table if exists products;
+create table products (
+id integer not null auto_increment,
+name varchar(450) not null,
+category varchar(450) not null,
+price double not null,
+image varchar(450) not null,
+primary key (id)
+);
+
+
+insert into products (id, name, category, price, image) values(1,'Nike Air Force','UNIQUE SHOE',120,'nike.jpg');
+insert into products (id, name, category, price, image) values(2,'Gucci','Men SHOE',495.95,'gucci.jpg');
+insert into products (id, name, category, price, image) values(3,'Balenciaga','Men SHOE',360,'balenciaga.jpg');
+insert into products (id, name, category, price, image) values(4,'Exclusive Jordans','UNIQUE SHOE',650,'jordan.jpg');
+insert into products (id, name, category, price, image) values(5,'Adidas','UNIQUE SHOE',99,'adidas.jpg');
+insert into products (id, name, category, price, image) values(6,'Puma','UNIQUE SHOE',139.95,'puma.jpg');
+
+drop table if exists users;
+create table users (
+id integer not null auto_increment,
+name varchar(250) not null,
+email varchar(250) not null,
+password varchar(250) not null,
+primary key (id),
+unique key email_unique (email)
+);
+
+INSERT INTO `users` VALUES (1,'Praveen','praveen@mail.com','12345678');
